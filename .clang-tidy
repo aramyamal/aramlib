@@ -1,0 +1,16 @@
+---
+Checks: "*,
+        -abseil-*,
+        -altera-*,
+        -android-*,
+        -fuchsia-*,
+        -google-*,
+        -llvm*,
+        -zircon-*,
+        -bugprone-macro-parentheses,
+        -readability-function-cognitive-complexity,
+        -readability-identifier-length,
+"
+WarningsAsErrors: ''
+HeaderFilterRegex: ''
+FormatStyle:     none
