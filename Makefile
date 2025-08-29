@@ -66,6 +66,7 @@ test:
 	@cmake -B $(BUILD_DIR) \
 		-DCMAKE_BUILD_TYPE=Debug \
 		-DBUILD_TESTS=ON \
+		-DCMAKE_C_FLAGS="-Wno-unused-parameter" \
 		$(CMAKE_FLAGS) \
 		.
 	@cmake --build $(BUILD_DIR)

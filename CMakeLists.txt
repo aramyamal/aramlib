@@ -58,6 +58,7 @@ if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/tests)
 
     set(TESTS
         "tests/test_array.c"
+        "tests/test_vector.c"
     )
     
     foreach(test_source ${TESTS})
