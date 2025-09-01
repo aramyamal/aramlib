@@ -8,13 +8,19 @@
 
 typedef struct {
     VoidArray array;
-    size_t capacity;
+    size_t length;
 } VoidVector;
+
+static inline size_t VoidVector_length(const VoidVector *self) {
+    return self ? self->length : 0;
+}
+
+static inline size_t VoidVector_capacity(const VoidVector *self) {
+    return self ? VoidArray_length(&self->array) : 0;
+}
 
 VoidVector VoidVector_create(size_t capacity, size_t element_size);
 void VoidVector_destroy(VoidVector *self);
-size_t VoidVector_length(const VoidVector *self);
-size_t VoidVector_capacity(const VoidVector *self);
 bool VoidVector_push(VoidVector *self, const void *value);
 bool VoidVector_get(const VoidVector *self, void *out_value, size_t index);
 bool VoidVector_set(VoidVector *self, const void *value, size_t index);

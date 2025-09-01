@@ -10,7 +10,7 @@ static void test_create_destroy(void) {
     assert(IntVector_capacity(&vec) == 0);
     IntVector_destroy(&vec);
     assert(vec._internal.array.data == NULL);
-    assert(vec._internal.capacity == 0);
+    assert(vec._internal.length == 0);
     assert(vec._internal.array.length == 0);
 
     // test with initial capacity
@@ -19,7 +19,7 @@ static void test_create_destroy(void) {
     assert(IntVector_capacity(&vec) >= 5);
     IntVector_destroy(&vec);
     assert(vec._internal.array.data == NULL);
-    assert(vec._internal.capacity == 0);
+    assert(vec._internal.length == 0);
     assert(vec._internal.array.length == 0);
 }
 
