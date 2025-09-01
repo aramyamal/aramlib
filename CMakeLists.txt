@@ -82,6 +82,7 @@ if(BUILD_EXAMPLES)
 
     set(EXAMPLES
         "examples/example_array.c"
+        "examples/example_vector.c"
     )
     
      foreach(example_source ${EXAMPLES})

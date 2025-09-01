@@ -1,8 +1,5 @@
-#include <stddef.h>
-#include <stdint.h>
-#include <stdio.h>
-
 #include "aramlib/array.h"
+#include <stdio.h>
 
 DEFINE_ARRAY(Int32Array, int32_t)
 
