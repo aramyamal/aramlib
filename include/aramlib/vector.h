@@ -24,7 +24,7 @@ void VoidVector_destroy(VoidVector *self);
 bool VoidVector_push(VoidVector *self, const void *value);
 bool VoidVector_get(const VoidVector *self, void *out_value, size_t index);
 bool VoidVector_set(VoidVector *self, const void *value, size_t index);
-bool VoidVector_pop(const VoidVector *self, void *out_value);
+bool VoidVector_pop(VoidVector *self, void *out_value);
 void VoidVector_clear(VoidVector *self);
 VoidVector VoidVector_copy(const VoidVector *self);
 

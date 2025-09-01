@@ -35,7 +35,7 @@ bool VoidVector_set(VoidVector *self, const void *value, size_t index) {
     return false;
 }
 
-bool VoidVector_pop(const VoidVector *self, void *out_value) {
+bool VoidVector_pop(VoidVector *self, void *out_value) {
     // TODO
     return false;
 }
