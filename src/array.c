@@ -10,11 +10,6 @@ static inline VoidArray VoidArray_null(void) {
     return (VoidArray){.data = NULL, .length = 0, .element_size = 0};
 }
 
-static inline bool VoidArray_is_valid_index(const VoidArray *self,
-                                            const size_t index) {
-    return VoidArray_is_valid(self) && index < self->length;
-}
-
 VoidArray VoidArray_create(const size_t length, const size_t element_size) {
     if (length == 0 || element_size == 0) {
         return VoidArray_null();

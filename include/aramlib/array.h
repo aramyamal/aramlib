@@ -15,6 +15,11 @@ static inline bool VoidArray_is_valid(const VoidArray *self) {
     return self && self->data && self->length > 0 && self->element_size > 0;
 }
 
+static inline bool VoidArray_is_valid_index(const VoidArray *self,
+                                            const size_t index) {
+    return VoidArray_is_valid(self) && index < self->length;
+}
+
 static inline size_t VoidArray_length(const VoidArray *self) {
     return self ? self->length : 0;
 }
