@@ -88,7 +88,7 @@ static void test_pop_elements(void) {
 }
 
 static void test_clear_vector(void) {
-    IntVector vec = IntVector_create(3);
+    IntVector vec = IntVector_create(2);
     IntVector_push(&vec, 10);
     IntVector_push(&vec, 20);
     IntVector_push(&vec, 30);
@@ -100,6 +100,13 @@ static void test_clear_vector(void) {
 
     // capacity should remain
     assert(IntVector_capacity(&vec) == capacity);
+
+    // verify we can still add elements after clear
+    assert(IntVector_push(&vec, 40) == true);
+    assert(IntVector_length(&vec) == 1);
+    int value = 0;
+    assert(IntVector_get(&vec, &value, 0) == true);
+    assert(value == 40);
 
     IntVector_destroy(&vec);
 }
