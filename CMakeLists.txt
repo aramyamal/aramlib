@@ -45,7 +45,7 @@ target_include_directories(aramlib PUBLIC
 # add compiler warnings to private aramlib
 add_compiler_warnings_private(aramlib)
 
-if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/tests)
+if(BUILD_TESTS AND EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/tests)
     enable_testing()
 
     function(add_test_executable target_name source_file)
