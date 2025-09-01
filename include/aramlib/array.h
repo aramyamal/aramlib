@@ -11,9 +11,16 @@ typedef struct {
     size_t element_size;
 } VoidArray;
 
+static inline bool VoidArray_is_valid(const VoidArray *self) {
+    return self && self->data && self->length > 0 && self->element_size > 0;
+}
+
+static inline size_t VoidArray_length(const VoidArray *self) {
+    return self ? self->length : 0;
+}
+
 VoidArray VoidArray_create(size_t length, size_t element_size);
 void VoidArray_destroy(VoidArray *self);
-size_t VoidArray_length(const VoidArray *self);
 bool VoidArray_get(const VoidArray *self, void *out_value, size_t index);
 bool VoidArray_set(VoidArray *self, const void *value, size_t index);
 VoidArray VoidArray_copy(const VoidArray *self);

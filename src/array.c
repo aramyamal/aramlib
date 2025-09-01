@@ -10,10 +10,6 @@ static inline VoidArray VoidArray_null(void) {
     return (VoidArray){.data = NULL, .length = 0, .element_size = 0};
 }
 
-static inline bool VoidArray_is_valid(const VoidArray *self) {
-    return self && self->data && self->length > 0 && self->element_size > 0;
-}
-
 static inline bool VoidArray_is_valid_index(const VoidArray *self,
                                             const size_t index) {
     return VoidArray_is_valid(self) && index < self->length;
@@ -41,13 +37,6 @@ void VoidArray_destroy(VoidArray *self) {
     self->data = NULL;
     self->element_size = 0;
     self->length = 0;
-}
-
-size_t VoidArray_length(const VoidArray *self) {
-    if (!VoidArray_is_valid(self)) {
-        return 0;
-    }
-    return self->length;
 }
 
 bool VoidArray_get(const VoidArray *self, void *out_value, const size_t index) {
