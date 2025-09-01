@@ -88,17 +88,18 @@ static void test_pop_elements(void) {
 }
 
 static void test_clear_vector(void) {
-    IntVector vec = IntVector_create(5);
+    IntVector vec = IntVector_create(3);
     IntVector_push(&vec, 10);
     IntVector_push(&vec, 20);
-    IntVector_push(&vec, 30); // resize occurs here to capacity = 10
+    IntVector_push(&vec, 30);
 
     assert(IntVector_length(&vec) == 3);
+    size_t capacity = IntVector_capacity(&vec);
     IntVector_clear(&vec);
     assert(IntVector_length(&vec) == 0);
 
     // capacity should remain
-    assert(IntVector_capacity(&vec) == 10);
+    assert(IntVector_capacity(&vec) == capacity);
 
     IntVector_destroy(&vec);
 }
