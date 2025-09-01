@@ -1,22 +1,21 @@
 #ifndef ARAMLIB_VECTOR_H
 #define ARAMLIB_VECTOR_H
 
+#include "aramlib/array.h"
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
 
 typedef struct {
-    void *data;
-    size_t length;
+    VoidArray array;
     size_t capacity;
-    size_t element_size;
 } VoidVector;
 
 VoidVector VoidVector_create(size_t capacity, size_t element_size);
 void VoidVector_destroy(VoidVector *self);
 size_t VoidVector_length(const VoidVector *self);
 size_t VoidVector_capacity(const VoidVector *self);
-void VoidVector_push(VoidVector *self, const void *value);
+bool VoidVector_push(VoidVector *self, const void *value);
 bool VoidVector_get(const VoidVector *self, void *out_value, size_t index);
 bool VoidVector_set(VoidVector *self, const void *value, size_t index);
 bool VoidVector_pop(const VoidVector *self, void *out_value);
@@ -44,8 +43,8 @@ VoidVector VoidVector_copy(const VoidVector *self);
         return VoidVector_capacity(&self->_internal);                          \
     }                                                                          \
                                                                                \
-    static inline void name##_push(name *self, const T value) {                \
-        VoidVector_push(&self->_internal, &value);                             \
+    static inline bool name##_push(name *self, const T value) {                \
+        return VoidVector_push(&self->_internal, &value);                      \
     }                                                                          \
                                                                                \
     static inline bool name##_get(const name *self, T *out_value,              \

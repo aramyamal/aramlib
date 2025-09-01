@@ -9,25 +9,25 @@ static void test_create_destroy(void) {
     assert(IntVector_length(&vec) == 0);
     assert(IntVector_capacity(&vec) == 0);
     IntVector_destroy(&vec);
-    assert(vec._internal.data == NULL);
+    assert(vec._internal.array.data == NULL);
     assert(vec._internal.capacity == 0);
-    assert(vec._internal.length == 0);
+    assert(vec._internal.array.length == 0);
 
     // test with initial capacity
     vec = IntVector_create(5);
     assert(IntVector_length(&vec) == 0);
     assert(IntVector_capacity(&vec) >= 5);
     IntVector_destroy(&vec);
-    assert(vec._internal.data == NULL);
+    assert(vec._internal.array.data == NULL);
     assert(vec._internal.capacity == 0);
-    assert(vec._internal.length == 0);
+    assert(vec._internal.array.length == 0);
 }
 
 static void test_push_elements(void) {
     IntVector vec = IntVector_create(2);
-    IntVector_push(&vec, 10);
-    IntVector_push(&vec, 20);
-    IntVector_push(&vec, 30);
+    assert(IntVector_push(&vec, 10) == true);
+    assert(IntVector_push(&vec, 20) == true);
+    assert(IntVector_push(&vec, 30) == true);
     assert(IntVector_length(&vec) == 3);
     assert(IntVector_capacity(&vec) >= 3);
     IntVector_destroy(&vec);

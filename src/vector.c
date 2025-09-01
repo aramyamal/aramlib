@@ -20,8 +20,9 @@ size_t VoidVector_capacity(const VoidVector *self) {
     return 0;
 }
 
-void VoidVector_push(VoidVector *self, const void *value) {
+bool VoidVector_push(VoidVector *self, const void *value) {
     // TODO
+    return true;
 }
 
 bool VoidVector_get(const VoidVector *self, void *out_value, size_t index) {
