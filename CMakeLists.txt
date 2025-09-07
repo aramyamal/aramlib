@@ -33,6 +33,7 @@ endfunction()
 add_library(aramlib 
     src/array.c
     src/vector.c
+    src/hashmap.c
 )
 
 add_library(aramlib::aramlib ALIAS aramlib)

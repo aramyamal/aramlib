@@ -2,6 +2,7 @@
 #define ARAMLIB_H
 
 #include "aramlib/array.h"
+#include "aramlib/hashmap.h"
 #include "aramlib/vector.h"
 
 #endif // ARAMLLIB_H
