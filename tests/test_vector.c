@@ -5,6 +5,8 @@
 DEFINE_VECTOR(IntVector, int)
 
 static void test_create_destroy(void) {
+    printf("Test: Create and destroy\n");
+
     IntVector vec = IntVector_create(0);
     assert(IntVector_length(&vec) == 0);
     assert(IntVector_capacity(&vec) == 0);
@@ -24,6 +26,8 @@ static void test_create_destroy(void) {
 }
 
 static void test_push_elements(void) {
+    printf("Test: Push elements\n");
+
     IntVector vec = IntVector_create(2);
     assert(IntVector_push(&vec, 10) == true);
     assert(IntVector_push(&vec, 20) == true);
@@ -63,6 +67,8 @@ static void test_get_set_elements(void) {
 }
 
 static void test_pop_elements(void) {
+    printf("Test: Pop elements\n");
+
     IntVector vec = IntVector_create(5);
     IntVector_push(&vec, 10);
     IntVector_push(&vec, 20);
@@ -88,6 +94,8 @@ static void test_pop_elements(void) {
 }
 
 static void test_clear_vector(void) {
+    printf("Test: Clear vector\n");
+
     IntVector vec = IntVector_create(2);
     IntVector_push(&vec, 10);
     IntVector_push(&vec, 20);
@@ -112,6 +120,8 @@ static void test_clear_vector(void) {
 }
 
 static void test_copy_vector(void) {
+    printf("Test: Copy vector\n");
+
     IntVector vec = IntVector_create(5);
     IntVector_push(&vec, 100);
     IntVector_push(&vec, 200);
